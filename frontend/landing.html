@@ -13,15 +13,16 @@
 
 <body>
     <div class="hero-container">
-        <!-- Background Overlay -->
-        <div class="hero-overlay"></div>
+        <!-- Animated Background -->
+        <div class="hero-grid-bg"></div>
+        <div class="hero-glow-orb orb-1"></div>
+        <div class="hero-glow-orb orb-2"></div>
 
         <!-- Navigation -->
         <nav class="navbar">
             <div class="nav-left">
                 <div class="logo">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
-                        stroke-width="2.5">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--primary)" stroke-width="2.5">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                     <span>Highwatch AI</span>
@@ -32,13 +33,78 @@
             </div>
         </nav>
 
-        <!-- Hero Content (Left Aligned) -->
-        <div class="hero-content">
-            <h1 class="headline">Where Thoughts Become Actions</h1>
-            <p class="subheading">Your personal knowledge assistant that connects to Google Drive. Chat with your
-                documents in a futuristic, secure, and immersive environment.</p>
-            <div class="hero-cta">
-                <a href="#app-section" class="btn-journey">Begin Journey</a>
+        <!-- Hero 2-Column Layout -->
+        <div class="hero-body">
+            <!-- Left: Text -->
+            <div class="hero-content">
+                <div class="hero-badge">Powered by Groq + Gemini</div>
+                <h1 class="headline">
+                    Your Documents.<br>
+                    <span class="headline-accent">Now Intelligent.</span>
+                </h1>
+                <p class="subheading">Connect your Google Drive, index your files, and chat with your entire knowledge base using state-of-the-art AI — all in one place.</p>
+                <div class="hero-cta">
+                    <a href="#app-section" class="btn-journey">Get Started</a>
+                    <a href="#workflow" class="btn-ghost">See How It Works</a>
+                </div>
+                <!-- Floating stat pills -->
+                <div class="hero-stats">
+                    <div class="stat-pill">
+                        <span class="stat-dot"></span>
+                        RAG Architecture
+                    </div>
+                    <div class="stat-pill">
+                        <span class="stat-dot"></span>
+                        FAISS Vector Search
+                    </div>
+                    <div class="stat-pill">
+                        <span class="stat-dot"></span>
+                        100% Private
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Visual Card Mock -->
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <div class="visual-card-header">
+                        <div class="vc-dot red"></div>
+                        <div class="vc-dot yellow"></div>
+                        <div class="vc-dot green"></div>
+                        <span class="vc-title">Ask AI</span>
+                    </div>
+                    <div class="visual-chat">
+                        <div class="vc-msg assistant">
+                            <div class="vc-avatar">AI</div>
+                            <div class="vc-bubble">Hello! I have indexed 12 documents from your Drive. What would you like to know?</div>
+                        </div>
+                        <div class="vc-msg user">
+                            <div class="vc-bubble user-bubble">Summarize the IT security policy.</div>
+                        </div>
+                        <div class="vc-msg assistant">
+                            <div class="vc-avatar">AI</div>
+                            <div class="vc-bubble">Based on your IT Security SOP: All employees must use MFA, passwords must be rotated every 90 days, and...</div>
+                        </div>
+                        <div class="vc-typing">
+                            <span></span><span></span><span></span>
+                        </div>
+                    </div>
+                    <div class="visual-input">
+                        <input type="text" placeholder="Ask anything about your docs..." disabled>
+                        <button>
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        </button>
+                    </div>
+                </div>
+                <!-- Floating badge -->
+                <div class="floating-badge badge-top">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="var(--primary)" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                    12 docs synced
+                </div>
+                <div class="floating-badge badge-bottom">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#22c55e" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Drive connected
+                </div>
             </div>
         </div>
     </div>
