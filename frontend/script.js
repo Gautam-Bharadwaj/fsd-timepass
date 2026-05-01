@@ -41,23 +41,23 @@ function init() {
     // Theme
     document.body.classList.add("dark-theme");
 
-    // Theme Toggle
-    els.btnThemeToggle.addEventListener("click", toggleTheme);
+    // Theme Toggle (optional — element may have been removed)
+    if (els.btnThemeToggle) els.btnThemeToggle.addEventListener("click", toggleTheme);
 
     // Initial Status Check
     checkStatus();
-    
+
     // Sync Events
-    els.btnConnect.addEventListener("click", () => window.location.href = `${API_URL}/auth/login`);
-    if(els.btnDisconnect) els.btnDisconnect.addEventListener("click", handleDisconnect);
-    els.btnSync.addEventListener("click", handleSync);
-    
+    if (els.btnConnect) els.btnConnect.addEventListener("click", () => window.location.href = `${API_URL}/auth/login`);
+    if (els.btnDisconnect) els.btnDisconnect.addEventListener("click", handleDisconnect);
+    if (els.btnSync) els.btnSync.addEventListener("click", handleSync);
+
     // Chat Events
-    els.btnSend.addEventListener("click", handleSendMessage);
-    els.chatInput.addEventListener("keypress", (e) => e.key === "Enter" && handleSendMessage());
-    
+    if (els.btnSend) els.btnSend.addEventListener("click", handleSendMessage);
+    if (els.chatInput) els.chatInput.addEventListener("keypress", (e) => e.key === "Enter" && handleSendMessage());
+
     // Settings Events
-    els.btnPurge.addEventListener("click", handlePurge);
+    if (els.btnPurge) els.btnPurge.addEventListener("click", handlePurge);
 }
 
 // ── Navigation ──
@@ -90,32 +90,32 @@ async function checkStatus() {
         if (!res.ok) throw new Error("Status check failed");
         const data = await res.json();
 
-        // Update User Profile
+        // Update User Profile (null-safe — sidebar elements may not exist)
         if (data.drive_connected) {
             const email = data.user_email || "Connected User";
-            els.userEmail.textContent = email;
-            els.userAvatarInitial.textContent = email.charAt(0).toUpperCase();
-            els.connStatus.textContent = "Drive Connected";
-            els.btnConnect.style.display = "none";
-            els.btnDisconnect.style.display = "flex";
-            els.btnSync.disabled = false;
+            if (els.userEmail) els.userEmail.textContent = email;
+            if (els.userAvatarInitial) els.userAvatarInitial.textContent = email.charAt(0).toUpperCase();
+            if (els.connStatus) els.connStatus.textContent = "Drive Connected";
+            if (els.btnConnect) els.btnConnect.style.display = "none";
+            if (els.btnDisconnect) els.btnDisconnect.style.display = "flex";
+            if (els.btnSync) els.btnSync.disabled = false;
         } else {
-            els.userEmail.textContent = "Guest User";
-            els.connStatus.textContent = "Not Connected";
-            els.btnConnect.style.display = "flex";
-            els.btnDisconnect.style.display = "none";
-            els.btnSync.disabled = true;
+            if (els.userEmail) els.userEmail.textContent = "Guest User";
+            if (els.connStatus) els.connStatus.textContent = "Not Connected";
+            if (els.btnConnect) els.btnConnect.style.display = "flex";
+            if (els.btnDisconnect) els.btnDisconnect.style.display = "none";
+            if (els.btnSync) els.btnSync.disabled = true;
         }
 
         // Update Sync Indicator
         if (data.faiss_index_exists) {
-            els.syncDot.style.backgroundColor = "var(--secondary)";
-            els.syncLabel.textContent = `${data.unique_documents} Files Ready`;
+            if (els.syncDot) els.syncDot.style.backgroundColor = "var(--secondary)";
+            if (els.syncLabel) els.syncLabel.textContent = `${data.unique_documents} Files Ready`;
             renderDocuments(data.files || []);
             fetchRecommendations();
         } else {
-            els.syncDot.style.backgroundColor = "var(--warning)";
-            els.syncLabel.textContent = "No Data Indexed";
+            if (els.syncDot) els.syncDot.style.backgroundColor = "var(--warning)";
+            if (els.syncLabel) els.syncLabel.textContent = "No Data Indexed";
         }
 
     } catch (e) {
@@ -283,13 +283,14 @@ window.handleDeleteDoc = async function(id) {
 };
 
 function logActivity(text, type = "info") {
+    console.log(`[${type.toUpperCase()}] ${text}`);
+    if (!els.activityLog) return;
     const entry = document.createElement("div");
     entry.style.padding = "8px 0";
     entry.style.fontSize = "0.85rem";
     entry.style.borderBottom = "1px solid var(--border)";
     entry.style.color = type === "danger" ? "var(--danger)" : "var(--text-main)";
     entry.textContent = `[${new Date().toLocaleTimeString()}] ${text}`;
-    
     if (els.activityLog.querySelector(".empty-state")) {
         els.activityLog.innerHTML = "";
     }
