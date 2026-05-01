@@ -1,53 +1,36 @@
 import numpy as np
-import torch
-from sentence_transformers import SentenceTransformer
+import os
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from config import GEMINI_API_KEY
 
-# Limit threads to reduce memory footprint on Render
-torch.set_num_threads(1)
+# Google Gemini Embedding dimensions is 768 (MiniLM was 384)
+_model = None
 
-from typing import Optional
-
-# Load model once at module level (singleton — avoids reloading on every call)
-_MODEL_NAME = "all-MiniLM-L6-v2"
-_model: Optional[SentenceTransformer] = None
-
-
-def _get_model() -> SentenceTransformer:
-    """Lazy-load the sentence transformer model."""
+def _get_model():
     global _model
     if _model is None:
-        print(f"[Embedder] Loading model '{_MODEL_NAME}'...")
-        _model = SentenceTransformer(_MODEL_NAME)
-        print("[Embedder] Model loaded.")
+        if not GEMINI_API_KEY:
+            raise ValueError("GEMINI_API_KEY not found in environment variables")
+        _model = GoogleGenerativeAIEmbeddings(
+            model="models/embedding-001",
+            google_api_key=GEMINI_API_KEY
+        )
     return _model
-
 
 def get_embeddings(texts: list[str]) -> np.ndarray:
     """
-    Generate embeddings for a list of text strings.
-
-    Args:
-        texts: List of strings to embed.
-
-    Returns:
-        numpy array of shape (len(texts), 384), dtype float32.
+    Generate embeddings using Google Gemini API.
+    Returns: numpy array of shape (len(texts), 768), dtype float32.
     """
     model = _get_model()
-    embeddings = model.encode(
-        texts,
-        batch_size=32,
-        show_progress_bar=False,
-        convert_to_numpy=True,
-        normalize_embeddings=True,  # Normalize for cosine similarity
-    )
-    return embeddings.astype(np.float32)
-
+    # Langchain's embed_documents returns a list of lists
+    embeddings = model.embed_documents(texts)
+    return np.array(embeddings, dtype=np.float32)
 
 def get_single_embedding(text: str) -> np.ndarray:
     """
-    Generate embedding for a single text string.
-
-    Returns:
-        numpy array of shape (1, 384), dtype float32.
+    Generate single embedding using Google Gemini API.
     """
-    return get_embeddings([text])
+    model = _get_model()
+    embedding = model.embed_query(text)
+    return np.array([embedding], dtype=np.float32)
