@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highwatch AI — Document Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="light-theme">
+    <!-- Auth Screen (Overlay) -->
+    <div id="auth-screen" class="auth-overlay" style="display: none;">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <h2>Highwatch AI</h2>
+            </div>
+            <p>Access your personal knowledge base over Google Drive</p>
+            <button id="btn-google-login" class="btn-primary-lg">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                Sign in with Google
+            </button>
+        </div>
+    </div>
+
+    <div class="app-container full-width">
+        <!-- Main Content Area -->
+        <main class="content-wrapper">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="logo-area">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <span class="logo-text">Highwatch AI</span>
+                </div>
+            </header>
+
+            <div class="app-scroller">
+
+                <!-- ── Onboarding Banner ── -->
+                <div class="onboarding-banner" id="onboarding-banner">
+                    <div class="onboarding-header">
+                        <div class="onboarding-title">
+                            <span class="onboarding-badge">Getting Started</span>
+                            <h2>Set up Highwatch AI in 3 steps</h2>
+                            <p>Follow these steps to start chatting with your documents.</p>
+                        </div>
+                        <button class="onboarding-dismiss" onclick="dismissOnboarding()" title="Dismiss">
+                            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                    <div class="onboarding-steps">
+                        <div class="onboarding-step" onclick="scrollToSection('screen-sync-drive')">
+                            <div class="step-number">1</div>
+                            <div class="step-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 12l-4-4v3H3v2h15v3l4-4z"></path><path d="M2 12l4 4v-3h15v-2H6V8l-4 4z"></path></svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Step 1</div>
+                                <strong>Connect Google Drive</strong>
+                                <span>Link your account to access documents</span>
+                            </div>
+                            <svg class="step-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </div>
+
+                        <div class="step-connector"></div>
+
+                        <div class="onboarding-step" onclick="scrollToSection('screen-sync-drive')">
+                            <div class="step-number">2</div>
+                            <div class="step-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Step 2</div>
+                                <strong>Sync Your Documents</strong>
+                                <span>Index files so AI can read them</span>
+                            </div>
+                            <svg class="step-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </div>
+
+                        <div class="step-connector"></div>
+
+                        <div class="onboarding-step" onclick="scrollToSection('screen-ask-ai')">
+                            <div class="step-number">3</div>
+                            <div class="step-icon">
+                                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="step-text">
+                                <div class="step-label">Step 3</div>
+                                <strong>Ask AI Anything</strong>
+                                <span>Chat with your documents instantly</span>
+                            </div>
+                            <svg class="step-arrow" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Grid Section -->
+                <section class="feature-selection-section">
+                    <div class="feature-grid">
+                        <div class="feature-card" onclick="scrollToSection('screen-ask-ai')">
+                            <div class="feature-icon orange">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Ask AI</h3>
+                                <p>Chat with your documents</p>
+                            </div>
+                        </div>
+                        <div class="feature-card" onclick="scrollToSection('screen-sync-drive')">
+                            <div class="feature-icon orange">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 12l-4-4v3H3v2h15v3l4-4z"></path><path d="M2 12l4 4v-3h15v-2H6V8l-4 4z"></path></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Sync Drive</h3>
+                                <p>Index your Google Drive</p>
+                            </div>
+                        </div>
+                        <div class="feature-card" onclick="scrollToSection('screen-documents')">
+                            <div class="feature-icon orange">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Documents</h3>
+                                <p>Manage your library</p>
+                            </div>
+                        </div>
+                        <div class="feature-card" onclick="scrollToSection('screen-settings')">
+                            <div class="feature-icon orange">
+                                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            </div>
+                            <div class="feature-info">
+                                <h3>Settings</h3>
+                                <p>System config</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Screen Containers -->
+                <div class="section-divider"></div>
+                <div class="screen-content">
+                    
+                    <!-- 1. Ask AI (Chat) -->
+                    <section id="screen-ask-ai" class="screen-container detailed-section">
+                        <div class="section-header">
+                            <h2>Ask AI Assistant</h2>
+                            <p>Query your document knowledge base in real-time.</p>
+                        </div>
+                        <div class="chat-wrapper">
+                            <div class="chat-messages" id="chat-messages">
+                                <div class="message assistant">
+                                    <div class="message-content">
+                                        Welcome to Highwatch AI. Connect your Google Drive and sync your documents to start chatting.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chat-input-container">
+                                <div class="quick-recommendations" id="recommendations-container" style="display: none;"></div>
+                                <div class="input-box">
+                                    <input type="text" id="chat-input" placeholder="Ask a question..." autocomplete="off">
+                                    <button id="btn-send-message" class="btn-send">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 2. Sync Drive -->
+                    <section id="screen-sync-drive" class="screen-container detailed-section">
+                        <div class="page-header">
+                            <h2>Google Drive Integration</h2>
+                            <p>Connect your account and sync documents to build your knowledge base.</p>
+                        </div>
+                        
+                        <div class="sync-grid">
+                            <div class="card sync-control">
+                                <h3>Connection</h3>
+                                <div class="button-group">
+                                    <button id="btn-drive-connect" class="btn-primary">Connect Account</button>
+                                    <button id="btn-drive-disconnect" class="btn-outline danger" style="display: none;">Disconnect</button>
+                                </div>
+                            </div>
+
+                            <div class="card sync-action">
+                                <h3>Synchronize</h3>
+                                <div class="input-field">
+                                    <input type="text" id="sync-folder-id" placeholder="Folder ID (Optional)">
+                                </div>
+                                <button id="btn-start-sync" class="btn-secondary" disabled>Start Sync</button>
+                                <div id="sync-progress-container" class="progress-area" style="display: none;">
+                                    <div class="progress-bar-bg">
+                                        <div id="sync-progress-fill" class="progress-bar-fill" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 3. Documents -->
+                    <section id="screen-documents" class="screen-container detailed-section">
+                        <div class="page-header">
+                            <h2>Knowledge Library</h2>
+                            <p>All documents indexed and ready for AI queries.</p>
+                        </div>
+                        <div class="documents-grid" id="documents-list">
+                            <div class="empty-state">
+                                <p>No documents indexed yet.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 4. Settings -->
+                    <section id="screen-settings" class="screen-container detailed-section">
+                        <div class="page-header">
+                            <h2>System Settings</h2>
+                            <p>Configure AI models and data management preferences.</p>
+                        </div>
+                        <div class="settings-list">
+                            <div class="card">
+                                <h3>Model Selection</h3>
+                                <select id="setting-llm-provider" class="custom-select">
+                                    <option value="groq">Groq (Llama 3.3 70B)</option>
+                                    <option value="gemini">Google Gemini 1.5 Flash</option>
+                                </select>
+                            </div>
+                            <div class="card mt-1">
+                                <button id="btn-purge-data" class="btn-outline danger">Purge All Data</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            element.scrollIntoView({ behavior: 'smooth' });
+            document.querySelectorAll('.detailed-section').forEach(s => s.classList.remove('active-glow'));
+            element.classList.add('active-glow');
+        }
+
+        function dismissOnboarding() {
+            const banner = document.getElementById('onboarding-banner');
+            banner.style.opacity = '0';
+            banner.style.transform = 'translateY(-10px)';
+            setTimeout(() => { banner.style.display = 'none'; }, 350);
+            localStorage.setItem('hw_onboarding_dismissed', '1');
+        }
+
+        // Auto-hide if already dismissed
+        if (localStorage.getItem('hw_onboarding_dismissed') === '1') {
+            const banner = document.getElementById('onboarding-banner');
+            if (banner) banner.style.display = 'none';
+        }
+    </script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
