@@ -1,0 +1,36 @@
+HIGHWATCH AI — HOW WE PROTECT YOUR PRIVACY & DATA
+A Commitment to Transparency | January 2025
+================================================================
+
+Hi there! We know that when you use Highwatch AI, you're trusting us with your documents and data. We take that trust very seriously. This guide explains how we handle your info in simple terms.
+
+1. WHAT DATA DO WE ACTUALLY COLLECT?
+------------------------------------
+- Basics: Just your name and email to get you set up.
+- Payments: We use secure partners (like Stripe) so we never actually see or store your credit card numbers.
+- Your Work: We process the documents you upload so the AI can answer your questions.
+- For Employees: We keep the usual stuff like payroll info and contact details needed to run the business.
+
+2. HOW WE USE YOUR INFO (AND HOW WE DON'T)
+------------------------------------------
+- We use it to serve you: The only reason we look at your data is to make sure the app works for you.
+- No selling: We NEVER sell your data to third parties. Period.
+- No "training" without asking: We don't use your private documents to train our general AI models unless you explicitly give us permission to help improve the system.
+
+3. YOUR RIGHTS
+--------------
+You are in control. At any time, you can:
+- Ask us what data we have on you.
+- Ask us to correct any mistakes.
+- Ask us to delete everything. (Once you hit delete, it’s gone from our servers forever.)
+
+4. KEEPING THINGS SECURE
+-------------------------
+We follow industry standards (like GDPR and India’s DPDP Act) to make sure our systems are locked down. We use encryption (scrambling the data) both when it's sitting on our servers and when it's traveling over the internet.
+
+5. QUESTIONS?
+-------------
+If you’re ever worried about your privacy, just reach out to our privacy officer at privacy@highwatch.ai. We're always happy to chat.
+
+Your data, your rules.
+- The Highwatch AI Privacy Team

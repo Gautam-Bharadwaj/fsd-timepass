@@ -1,0 +1,36 @@
+HIGHWATCH AI — KEEPING OUR WORK SECURE: A FRIENDLY GUIDE
+Last Updated: March 2025 | For Internal Use Only
+================================================================
+
+Hi Team! At Highwatch AI, we deal with some pretty important data. Whether it's our own hard work or our customers' trust, keeping things safe is everyone's job. This guide is here to help you understand how to stay secure without making things too complicated.
+
+1. PASSWORDS: YOUR FIRST LINE OF DEFENSE
+----------------------------------------
+We know, passwords can be a pain, but they’re super important. Here’s how we do it:
+- Make them long: At least 12 characters.
+- Mix it up: Use big and small letters, numbers, and those weird symbols (#, !, etc.).
+- Keep them fresh: Change your main password every 90 days.
+- No repeats: Try to use something brand new every time (don't just add a '1' at the end!).
+- Use a helper: We use LastPass Enterprise. It stores everything so you don't have to remember 50 different codes.
+- Never share: Not over Slack, not over email. If someone asks for your password, even if they say they're from "IT," don't give it to them!
+
+*Crucial Step:* Always turn on Multi-Factor Authentication (MFA). It's that extra text or app notification that keeps hackers out even if they guess your password.
+
+2. SHARING DATA: WHO NEEDS TO SEE WHAT?
+---------------------------------------
+Not all info is the same. Think of it in three levels:
+- Public (Level 1): Stuff like our blog posts or website. Feel free to share this with the world!
+- Internal (Level 2): Things like this guide or our meeting notes. Keep these within the company, please.
+- Confidential (Level 3): This is the serious stuff—client data, our financial records, and our secret sauce (code). Only share this if you absolutely have to and with the right permissions.
+
+3. YOUR GEAR AND DEVICES
+-------------------------
+- Lock it up: If you step away from your desk (even for coffee), hit Cmd+L or Win+L to lock your screen.
+- Keep it clean: Don't download random software. If you need something new, ask the tech team first.
+- Public Wi-Fi: If you're working from a cafe, always use our company VPN. Open Wi-Fi is like shouting your data in a crowded room.
+
+4. WHAT TO DO IF SOMETHING FEELS WRONG
+--------------------------------------
+Accidents happen. Maybe you clicked a weird link or lost your laptop. Don't panic! Just tell the Security Team (security@highwatch.ai) right away. The sooner we know, the easier it is to fix.
+
+Stay safe out there!
