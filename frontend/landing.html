@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highwatch AI — Where Thoughts Become Actions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/landing.css">
+</head>
+
+<body>
+    <div class="hero-container">
+        <!-- Background Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                    <span>Highwatch AI</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="#app-section" class="btn-primary">Launch Application</a>
+            </div>
+        </nav>
+
+        <!-- Hero Content (Left Aligned) -->
+        <div class="hero-content">
+            <h1 class="headline">Where Thoughts Become Actions</h1>
+            <p class="subheading">Your personal knowledge assistant that connects to Google Drive. Chat with your
+                documents in a futuristic, secure, and immersive environment.</p>
+            <div class="hero-cta">
+                <a href="#app-section" class="btn-journey">Begin Journey</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <section id="workflow" class="workflow-section">
+        <div class="section-container">
+            <h2 class="section-title">How Highwatch AI Works</h2>
+
+            <div class="workflow-diagram">
+                <!-- Step 1: Connect -->
+                <div class="workflow-node start-node">
+                    <div class="node-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="node-content">
+                        <h3>Connect Drive</h3>
+                        <p>Sync your PDFs and Google Docs securely with OAuth.</p>
+                    </div>
+                    <div class="node-number">01</div>
+                </div>
+
+                <!-- Connectors (Lines) -->
+                <div class="connectors">
+                    <svg width="180" height="300" viewBox="0 0 180 300" class="path-svg">
+                        <path d="M0,150 C90,150 90,20 180,20" class="glow-path" />
+                        <path d="M0,150 C90,150 90,85 180,85" class="glow-path" />
+                        <path d="M0,150 C90,150 90,150 180,150" class="glow-path" />
+                        <path d="M0,150 C90,150 90,215 180,215" class="glow-path" />
+                        <path d="M0,150 C90,150 90,280 180,280" class="glow-path" />
+                    </svg>
+                </div>
+
+                <!-- Step 2: Processing (Center Stack) -->
+                <div class="processing-stack">
+                    <div class="workflow-node mini-node">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        <div>
+                            <h4>Code Context</h4>
+                            <span>Chunking & Parsing</span>
+                        </div>
+                    </div>
+                    <div class="workflow-node mini-node">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <div>
+                            <h4>Dep Analysis</h4>
+                            <span>Metadata Extraction</span>
+                        </div>
+                    </div>
+                    <div class="workflow-node mini-node">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        <div>
+                            <h4>Vector Embed</h4>
+                            <span>AI Semantic Map</span>
+                        </div>
+                    </div>
+                    <div class="workflow-node mini-node">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <div>
+                            <h4>Vulnerability</h4>
+                            <span>Security Scanning</span>
+                        </div>
+                    </div>
+                    <div class="workflow-node mini-node">
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        <div>
+                            <h4>Architecture</h4>
+                            <span>Knowledge Graph</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connectors 2 -->
+                <div class="connectors">
+                    <svg width="180" height="300" viewBox="0 0 180 300" class="path-svg">
+                        <path d="M180,150 C90,150 90,20 0,20" class="glow-path" />
+                        <path d="M180,150 C90,150 90,85 0,85" class="glow-path" />
+                        <path d="M180,150 C90,150 90,150 0,150" class="glow-path" />
+                        <path d="M180,150 C90,150 90,215 0,215" class="glow-path" />
+                        <path d="M180,150 C90,150 90,280 0,280" class="glow-path" />
+                    </svg>
+                </div>
+
+                <!-- Step 3: Result -->
+                <div class="workflow-node end-node">
+                    <div class="node-icon success">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="node-content">
+                        <h3>Code & Succeed</h3>
+                        <p>Start chatting flawlessly with AI knowledge.</p>
+                    </div>
+                    <div class="node-number">03</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live App Section -->
+    <section id="app-section" class="app-live-section">
+        <div class="section-container">
+            <h2 class="section-title">Try It Right Now</h2>
+            <p class="section-subtitle">No setup needed — connect your Drive and start chatting below.</p>
+        </div>
+        <div class="app-iframe-wrapper">
+            <iframe src="/app" class="app-iframe" title="Highwatch AI Application" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--primary)" stroke-width="2.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>Highwatch AI</span>
+                </div>
+                <p>Your personal AI knowledge assistant.<br>Chat with your documents. Own your data.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Navigate</h4>
+                <a href="#">Home</a>
+                <a href="#workflow">How It Works</a>
+                <a href="#app-section">Try Now</a>
+            </div>
+
+            <!-- Stack -->
+            <div class="footer-links">
+                <h4>Built With</h4>
+                <a href="https://fastapi.tiangolo.com" target="_blank">FastAPI</a>
+                <a href="https://groq.com" target="_blank">Groq LLM</a>
+                <a href="https://ai.google.dev" target="_blank">Gemini AI</a>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="mailto:hello@highwatch.ai">Email</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Highwatch AI. All rights reserved.</span>
+            <span class="footer-badge">Made with care &amp; Python</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
